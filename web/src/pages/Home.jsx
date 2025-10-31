@@ -34,7 +34,7 @@ export default function Home() {
     try {
       setLoading(true)
       setError('')
-      const res = await axios.get('https://ipinfo.io//geo')
+      const res = await axios.get('http://localhost:8000/api/geo')
       setGeo(res.data)
     } catch (e) {
       setError('Failed to load your geolocation info')
@@ -47,7 +47,7 @@ export default function Home() {
     try {
       setLoading(true)
       setError('')
-      const url = ip ? `https://ipinfo.io/${ip}/geo` : 'https://ipinfo.io//geo'
+      const url = ip ? `http://localhost:8000/api/geo/${ip}` : 'http://localhost:8000/api/geo'
       const res = await axios.get(url)
       setGeo(res.data)
       if (ip) {
